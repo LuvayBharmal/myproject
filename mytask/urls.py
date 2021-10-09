@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import GetLangugeData
+from .views import GetLanguageDetails
 
 urlpatterns = [
-    path('language/',GetLangugeData.as_view(),name="myapi"),
+    path('language/<language>/<word>/', GetLanguageDetails.as_view() , name="myapi"),
 ]
 
 

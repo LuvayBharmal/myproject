@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from rest_framework import status
 from django.http import Http404
 from ai4bharat.transliteration import XlitEngine
+from django.http import JsonResponse
 
 class ApiErrorException(Exception):
     pass
@@ -24,5 +25,5 @@ class GetLanguageDetails(APIView):
                 raise ValueError("Aarrayconveter list is empty ")
             return Response(list_of_converted_words)
         except Exception:
-            return Response(status=status.HTTP_404_NOT_FOUND)
+            return JsonResponse({"matches":"false","results":[]})
             
